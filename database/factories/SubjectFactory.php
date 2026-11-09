@@ -1,0 +1,29 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Subject;
+
+class SubjectFactory extends Factory
+{
+    protected $model = Subject::class;
+
+    public function definition(): array
+    {
+        return [
+            'name' => $this->faker->unique()->randomElement([
+                'Matematika',
+                'Bahasa Indonesia',
+                'Bahasa Inggris',
+                'Fisika',
+                'Kimia',
+                'Biologi',
+                'Sejarah',
+                'Geografi',
+                'Ekonomi',
+                'Seni Budaya'
+            ]),
+        ];
+    }
+}

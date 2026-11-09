@@ -15,11 +15,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Membuat data dummy untuk Student
+        \App\Models\Student::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Menggunakan updateOrCreate agar aman jika dijalankan berulang kali
+        User::updateOrCreate(
+            ['email' => 'test@example.com'],
+            [
+                'name' => 'Test User',
+                'password' => bcrypt('password'), // Pastikan password ter-hash dengan baik
+            ]
+        );
+
+        // Membuat data Subject dan Teacher
+        \App\Models\Subject::factory(10)->create();
+        \App\Models\Teacher::factory(10)->create();
+
+        // Memanggil ClassroomSeeder
+        $this->call([
+            ClassroomSeeder::class,
         ]);
     }
 }

@@ -46,12 +46,35 @@
         :icon="'<path fill-rule=\'evenodd\' d=\'M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z\' clip-rule=\'evenodd\'></path>'"
       />
 
+      <!-- Menu Students -->
+      <ul>
+        <li>
+          <a href="/admin/student" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <span class="ms-3">Students</span>
+          </a>
+        </li>
 
-    <li>
-    <a href="/admin/student" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-        <span class="ms-3">Students</span>
-    </a>
-</li>
+        <li>
+          <a href="/admin/classroom" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <span class="ms-3">Classroom</span>
+          </a>
+        </li>
+
+        <!-- Menu Subjects -->
+        <li>
+          <a href="{{ route('subjects.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <span class="ms-3">Subjects</span>
+          </a>
+        </li>
+
+        <!-- Menu Teachers -->
+        <li>
+          <a href="{{ route('teachers.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              <span class="ms-3">Teachers</span>
+          </a>
+        </li>
+      </ul>
+
     </div>
   </aside>
 </div>
