@@ -2,25 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\student;
+use App\Models\Student;
+use App\Models\Classroom;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends Factory<student>
- */
 class StudentFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Student::class;
+
     public function definition(): array
     {
         return [
             'name' => fake()->name(),
-            'nis' => fake()->randomNumber(5, false),
-            'classroom' => fake()->randomElement(['11 PPLG 1', '11 PPLG 2', '11 PPLG 3']),
+            'nis' => fake()->randomNumber(5, true),
+            'classroom_id' => Classroom::inRandomOrder()->first()?->id ?? Classroom::factory(),
             'address' => fake()->address(),
         ];
     }

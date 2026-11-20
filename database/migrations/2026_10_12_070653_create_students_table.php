@@ -10,17 +10,16 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->string("name");
-            $table->integer("nis");
-            $table->string("classroom");
-  
-            $table->timestamps();
-        });
-    }
+    {Schema::create('students', function (Blueprint $table) {
+    $table->id();
+    $table->string('nis');
+    $table->string('name');
+    $table->foreignId('classroom_id')->constrained('classrooms');
+    $table->text('address');
 
+    $table->timestamps();
+});
+    }
     /**
      * Reverse the migrations.
      */

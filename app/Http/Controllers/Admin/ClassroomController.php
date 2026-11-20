@@ -10,14 +10,14 @@ class ClassroomController extends Controller
 {
    public function index()
 {
-    $classrooms = Classroom::all();
-
-    return view('Admin.classroom', [
+    $classrooms = Classroom::with('students')->get();
+    return view('Admin.Classroom.Classroom', [
         'classrooms' => $classrooms,
         'title' => 'Classroom',
         'subtitle' => 'Daftar semua ruangan kelas yang tersedia'
     ]);
 }
+
     public function create()
     {
         //
@@ -25,7 +25,20 @@ class ClassroomController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'major' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Nama classroom wajib diisi.',
+            'major.required' => 'Jurusan wajib diisi.',
+        ]);
+
+        Classroom::create([
+            'name' => $request->name,
+            'major' => $request->major,
+        ]);
+
+        return redirect()->back()->with('success', 'Data classroom berhasil ditambahkan!');
     }
 
     public function show(Classroom $classroom)

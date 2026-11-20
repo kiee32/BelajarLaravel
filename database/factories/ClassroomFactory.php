@@ -17,7 +17,6 @@ class ClassroomFactory extends Factory
 
         return [
             'name' => "{$level} {$major} {$number}",
-            'class' => $level,
             'major' => $major,
         ];
     }
