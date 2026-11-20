@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('teacher_id')->nullable(); // Hapus ->after('name') di sini
+            $table->unsignedBigInteger('teacher_id')->nullable(); 
             $table->timestamps();
         });
     }

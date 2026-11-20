@@ -12,7 +12,7 @@ Schema::create('teachers', function (Blueprint $table) {
     $table->id();
     $table->string('name');
     $table->bigInteger('niy');
-    $table->foreignId('subject_id')->constrained('subjects');
+    $table->foreignId('subject_id')->nullable()->constrained();
     $table->date('start_date');
     $table->timestamps();
 });

@@ -22,25 +22,29 @@ class TeacherController extends Controller
         ]);
     }
 
-  
-    public function store(Request $request)
-    {
 
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'niy' => 'required|string|max:50|unique:teachers,niy',
-            'subject_id' => 'required|exists:subjects,id',
-            'start_date' => 'required|date',
-        ]);
-
-        Teacher::create([
-            'name' => $request->name,
-            'niy' => $request->niy,
-            'subject_id' => $request->subject_id,
-            'start_date' => $request->start_date,
-        ]);
-
-
-        return redirect()->route('teachers.index')->with('success', 'Data teacher berhasil ditambahkan!');
-    }
+    public function create()
+{
+    $subjects = \App\Models\Subject::all();
+    return view('admin.teachers.create', compact('subjects'));
 }
+
+public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required',
+        'niy' => 'required',
+        'start_date' => 'required|date',
+        'subject_id' => 'required|exists:subjects,id',
+    ]);
+
+    Teacher::create([
+        'name' => $request->name,
+        'niy' => $request->niy,
+        'start_date' => $request->start_date,
+        'subject_id' => $request->subject_id,
+    ]);
+
+    return redirect()->route('teachers.index')->with('success', 'Data guru berhasil ditambahkan.');
+}
+};

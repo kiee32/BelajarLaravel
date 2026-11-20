@@ -20,20 +20,13 @@ Route::get('/layout', function () {
     return view('layout');
 });
 
-Route::get('/admin/students', [StudentsController::class, 'index']);
-Route::post('/admin/students', [StudentsController::class, 'store'])->name('students.store');
+Route::resource('/admin/students', StudentsController::class);
 
-
-
-
-Route::get('/admin/classrooms', [ClassroomController::class, 'index']);
-Route::post('/admin/classrooms', [ClassroomController::class, 'store'])->name('classrooms.store');
-
-
+Route::resource('/admin/classrooms', ClassroomController::class);
 
 Route::resource('/admin/subjects', SubjectController::class);
 
-Route::resource('teachers', TeacherController::class);
+Route::resource('/admin/teachers', TeacherController::class);
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index']);
 

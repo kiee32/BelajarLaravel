@@ -2,7 +2,6 @@
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 min-h-screen">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
 
-            <!-- Title Section -->
             <div class="mb-4">
                 <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
                     {{ $title ?? 'Subjects' }}
@@ -12,7 +11,7 @@
                 </p>
             </div>
 
-            <!-- Flash Message Success -->
+
             @if(session('success'))
                 <div class="mb-4 p-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
                     {{ session('success') }}
@@ -22,7 +21,7 @@
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden border border-slate-700/80">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
 
-                    <!-- Search Bar -->
+
                     <div class="w-full md:w-1/2">
                         <form action="" method="GET" class="flex items-center">
                             <label for="simple-search" class="sr-only">Search</label>
@@ -37,7 +36,7 @@
                         </form>
                     </div>
 
-                    <!-- Button Add Subject (Trigger Modal) -->
+
                     <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                         <button id="createSubjectButton" data-modal-target="createSubjectModal" data-modal-toggle="createSubjectModal" type="button" class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                             <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -49,7 +48,7 @@
 
                 </div>
 
-                <!-- Table Section -->
+
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
